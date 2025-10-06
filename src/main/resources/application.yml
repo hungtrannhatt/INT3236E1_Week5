@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:file:./data/oauthdb;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always         # chạy schema.sql khi start
+  jpa:
+    hibernate:
+      ddl-auto: none       # KHÔNG cho JPA tự tạo bảng oauth2_authorized_client
+
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: YahMkAFtjWHoqcwEJvMaCyUygZNa0q32
+            client-secret: WcKTftdkCsLA3YwXAIfdCeE8iivE5FFL2o_lR99WuNI_9LnF83bbdHOEyXM8VYa3
+            client-authentication-method: client_secret_basic
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile, email, offline_access
+            client-name: Auth0
+        provider:
+          auth0:
+            issuer-uri: https://YOUR_TENANT_REGION.auth0.com/
