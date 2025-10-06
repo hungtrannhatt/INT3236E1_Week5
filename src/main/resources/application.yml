@@ -23,8 +23,8 @@ spring:
       client:
         registration:
           auth0:
-            client-id: YahMkAFtjWHoqcwEJvMaCyUygZNa0q32
-            client-secret: WcKTftdkCsLA3YwXAIfdCeE8iivE5FFL2o_lR99WuNI_9LnF83bbdHOEyXM8VYa3
+            client-id: dDmeHkVUnlggah4F0I49Bt2SQn1DH3YP
+            client-secret: A86DU-e3X0ORlyeFCdfKPmt50OLBZ_mqUc_S5Mr0bx5ApZTT7wFiEiuWc7a2LefZ
             client-authentication-method: client_secret_basic
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
@@ -32,4 +32,4 @@ spring:
             client-name: Auth0
         provider:
           auth0:
-            issuer-uri: https://YOUR_TENANT_REGION.auth0.com/
+            issuer-uri: https://dev-qhkoe6nlrvvum6xl.us.auth0.com/

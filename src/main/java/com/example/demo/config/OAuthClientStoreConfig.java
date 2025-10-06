@@ -12,10 +12,9 @@ import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepo
 @Configuration
 public class OAuthClientStoreConfig {
 
-    @Bean
-    public OAuth2AuthorizedClientService authorizedClientService(
-            ClientRegistrationRepository repo, DataSource dataSource) {
-        return new JdbcOAuth2AuthorizedClientService((JdbcOperations) dataSource, repo);
+    @Bean    public OAuth2AuthorizedClientService authorizedClientService(
+            ClientRegistrationRepository repo, JdbcOperations jdbcOps) {
+        return new JdbcOAuth2AuthorizedClientService(jdbcOps, repo);
     }
 
     @Bean
